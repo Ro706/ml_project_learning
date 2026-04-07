@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import load_iris
+from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, classification_report
@@ -13,9 +13,9 @@ from sklearn.metrics import accuracy_score, classification_report
 # ==========================================
 # Step 2: Load Dataset
 # ==========================================
-iris = load_iris()
-X = iris.data
-y = iris.target
+data = load_breast_cancer()
+X = data.data
+y = data.target
 
 
 # ==========================================
@@ -30,7 +30,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # Step 4: Create KNN Model
 # ==========================================
 model = KNeighborsClassifier(
-    n_neighbors=5,   # K value
+    n_neighbors=5,
     metric='euclidean'
 )
 
@@ -73,5 +73,5 @@ plt.figure()
 plt.plot(k_values, accuracies, marker='o')
 plt.xlabel("K Value")
 plt.ylabel("Accuracy")
-plt.title("K vs Accuracy (KNN)")
+plt.title("K vs Accuracy (KNN - Breast Cancer)")
 plt.show()
