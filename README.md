@@ -1,10 +1,28 @@
-# AI Course: Machine Learning Implementations
+# AI Course: Machine Learning & Deep Learning Implementations
 
-This project contains various machine learning algorithms implemented using Python and `scikit-learn`. It covers fundamental concepts in both **Regression** and **Classification**.
+This project contains various machine learning and deep learning algorithms implemented using Python, `scikit-learn`, and `PyTorch`. It covers fundamental concepts ranging from classical **Regression** and **Classification** to **Neural Networks**.
 
 ## Project Overview
 
-The repository is structured to provide clear, hands-on examples of common ML models. Each script is self-contained, handling data loading (mostly from `sklearn.datasets`), preprocessing, model training, evaluation, and visualization.
+The repository is structured to provide clear, hands-on examples of common AI models. Each script is self-contained, handling data loading, preprocessing, model training, evaluation, and visualization.
+
+## Current Progress
+
+- [x] **Classical Machine Learning (`ml/`)**
+    - [x] Simple Linear Regression
+    - [x] Polynomial Regression
+    - [x] Logistic Regression (Binary Classification)
+    - [x] Decision Tree Classification
+    - [x] k-Nearest Neighbors (k-NN)
+    - [x] Random Forest Classification
+    - [x] Naive Bayes (implemented via Random Forest)
+- [x] **Deep Learning (`deepLearning/`)**
+    - [x] Convolutional Neural Network (CNN) for MNIST
+    - [x] Feedforward Neural Network (FNN) for Binary Classification
+- [ ] **Advanced Topics** (Planned)
+    - [ ] Recurrent Neural Networks (RNN)
+    - [ ] Natural Language Processing (NLP) basics
+    - [ ] Reinforcement Learning introduction
 
 ## Getting Started
 
@@ -12,45 +30,29 @@ This project uses `uv` for fast and reliable dependency management.
 
 ### Installation
 
-1.  **Install `uv`** (if not already installed):
+1.  **Install `uv`**:
     ```bash
     pip install uv
     ```
 
-2.  **Create a virtual environment and install dependencies**:
+2.  **Create a virtual environment**:
     ```bash
     uv venv
-    uv pip install -r ml/requirements.txt
     ```
 
-3.  **Run a script**:
-    ```bash
-    uv run ml/simple_linear_regression.py
-    ```
+3.  **Install dependencies**:
+    *   For Classical ML: `uv pip install -r ml/requirements.txt`
+    *   For Deep Learning: `uv pip install -r deepLearning/cnn/requirements.txt`
 
-## Regression vs. Classification
+### Running Scripts
 
-### 1. Regression
-Regression is used when the target variable you are trying to predict is **continuous** (a real number).
--   **Goal:** To find the relationship between independent variables and a dependent numerical variable.
--   **Evaluation Metrics:** Mean Absolute Error (MAE), Mean Squared Error (MSE), R-squared (R²).
--   **Examples in this project:**
-    -   `simple_linear_regression.py`: Predicts California housing prices using a linear relationship.
-    -   `polynomial_Regression.py`: Uses higher-degree features to capture non-linear trends in housing data.
+*   **Classical ML**: `uv run ml/simple_linear_regression.py`
+*   **Deep Learning (CNN)**: `cd deepLearning/cnn && uv run main.py`
+*   **Deep Learning (FNN)**: `cd deepLearning/fnn && uv run main.py`
 
-### 2. Classification
-Classification is used when the target variable consists of **discrete categories** or labels.
--   **Goal:** To assign input data into specific classes.
--   **Evaluation Metrics:** Accuracy, Precision, Recall, F1-Score, Confusion Matrix.
--   **Examples in this project:**
-    -   `binaryClassification.py`: Uses Logistic Regression to classify breast cancer as Malignant or Benign.
-    -   `DecisionTreeClassification.py`: Classifies Iris flower species using a tree-like model.
-    -   `kNearestNeighbors.py`: Classifies data based on the majority label of its nearest neighbors.
-    -   `RandomForest.py`: An ensemble method using multiple decision trees for robust classification.
-    -   `NaiveBayes.py`: (Currently implements a Random Forest classifier on the breast cancer dataset).
+## Project Structure
 
-## Project Structure (ml/ directory)
-
+### 1. Machine Learning (`ml/`)
 | File | Algorithm | Dataset | Description |
 | :--- | :--- | :--- | :--- |
 | `simple_linear_regression.py` | Linear Regression | California Housing | Basic linear model for price prediction. |
@@ -61,10 +63,18 @@ Classification is used when the target variable consists of **discrete categorie
 | `RandomForest.py` | Random Forest | Iris | Ensemble learning with feature importance. |
 | `NaiveBayes.py` | Random Forest | Breast Cancer | Random Forest implementation on cancer data. |
 
+### 2. Deep Learning (`deepLearning/`)
+| Directory | Architecture | Dataset | Description |
+| :--- | :--- | :--- | :--- |
+| `cnn/` | CNN | MNIST | 2D Convolutional layers for digit recognition. |
+| `fnn/` | FNN | Breast Cancer | Multi-layer perceptron for binary classification. |
+
 ## Key Libraries Used
 
--   **scikit-learn**: For model implementation and datasets.
+-   **scikit-learn**: For classical ML and datasets.
+-   **PyTorch**: For building and training neural networks.
 -   **pandas & numpy**: For data manipulation and numerical operations.
--   **matplotlib & seaborn**: For data visualization and plotting results.
+-   **matplotlib & seaborn**: For data visualization.
+-   **opencv-python**: Used in CNN for image processing tasks.
 
 ---
